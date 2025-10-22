@@ -65,6 +65,6 @@ def combine_stock_and_vix(stock_data, vix_data):
     combined = stock_data.join(vix_close, how='left')
     
     # Forward fill VIX values for any missing dates
-    combined['VIX'] = combined['VIX'].fillna(method='ffill')
+    combined['VIX'] = combined['VIX'].ffill()
     
     return combined
